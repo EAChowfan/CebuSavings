@@ -1,17 +1,27 @@
+import { Header } from './components/Header.tsx'
+import { Carousel } from './components/carousel';
+import './css/index.css'
 
-import { Header } from './Header.tsx'
-import './css/App.css'
+const slides = [
+  { image: '/src/assets/cebu1.jpg', alt: 'Slide 1' }, 
+  { image: '/src/assets/cebu2.jpg', alt: 'Slide 2' },
+  { image: '/src/assets/cebu3.jpg', alt: 'Slide 3' },
+];
+
 
 function App() {
-  
-
   return (
     <>
     <Header />
-    <div className="h-12">
-    <main className="pt-16 p-4 centered">
+    <div className="items-center justify-center flex h-screen">
       <h1 className="text-3xl font-bold">Your Financial Application</h1>
-    </main>
+      <div className="max-w-lg">
+        <Carousel>
+          {slides.map((slides) =>(
+            <img src={slides.image} />
+          ))} 
+        </Carousel>
+      </div>
     </div>
     </>
   )
